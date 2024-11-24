@@ -28,7 +28,7 @@ function Settings() {
 
   const fetchSettings = async () => {
     try {
-      const response = await axios.get('http://localhost:3000/api/users/settings');
+      const response = await axios.get('http://199.85.208.153:3000/api/users/settings');
       setSettings(response.data);
     } catch (err: any) {
       setError(err.response?.data?.error || 'Failed to fetch settings');
@@ -53,7 +53,7 @@ function Settings() {
     formData.append('avatar', file);
 
     try {
-      await axios.post('http://localhost:3000/api/users/avatar', formData, {
+      await axios.post('http://199.85.208.153:3000/api/users/avatar', formData, {
         headers: { 'Content-Type': 'multipart/form-data' }
       });
       await refreshUser();
@@ -67,7 +67,7 @@ function Settings() {
     setIsSaving(true);
     try {
       const updatedSettings = { ...settings, ...newSettings };
-      const response = await axios.put('http://localhost:3000/api/users/settings', updatedSettings);
+      const response = await axios.put('http://199.85.208.153:3000/api/users/settings', updatedSettings);
       setSettings(response.data);
       setError(null);
     } catch (err: any) {
@@ -99,7 +99,7 @@ function Settings() {
           <div className="flex items-center space-x-4">
             {user?.avatar_hash ? (
               <img
-                src={`http://localhost:3000/api/avatars/${user.avatar_hash}`}
+                src={`http://199.85.208.153:3000/api/avatars/${user.avatar_hash}`}
                 alt="User avatar"
                 className="w-20 h-20 rounded-full border-2 border-portal-purple"
               />

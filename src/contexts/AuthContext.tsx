@@ -2,7 +2,7 @@ import { createContext, useContext, useState, useEffect, ReactNode } from 'react
 import axios from 'axios';
 
 axios.defaults.withCredentials = true;
-axios.defaults.baseURL = 'http://localhost:3000';
+axios.defaults.baseURL = 'http://199.85.208.153:3000';
 
 interface User {
   id: number;

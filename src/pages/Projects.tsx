@@ -29,7 +29,7 @@ function Projects() {
   const fetchProjects = async () => {
     try {
       setLoading(true);
-      const response = await axios.get('http://localhost:3000/api/projects');
+      const response = await axios.get('http://199.85.208.153:3000/api/projects');
       setProjects(response.data);
       setError(null);
     } catch (err: any) {
@@ -43,7 +43,7 @@ function Projects() {
     if (!window.confirm('Are you sure you want to delete this project?')) return;
     
     try {
-      await axios.delete(`http://localhost:3000/api/projects/${id}`);
+      await axios.delete(`http://199.85.208.153:3000/api/projects/${id}`);
       await fetchProjects();
       setError(null);
     } catch (err: any) {
@@ -54,9 +54,9 @@ function Projects() {
   const handleSubmit = async (projectData: any) => {
     try {
       if (editingProject) {
-        await axios.put(`http://localhost:3000/api/projects/${editingProject.id}`, projectData);
+        await axios.put(`http://199.85.208.153:3000/api/projects/${editingProject.id}`, projectData);
       } else {
-        await axios.post('http://localhost:3000/api/projects', projectData);
+        await axios.post('http://199.85.208.153:3000/api/projects', projectData);
       }
       await fetchProjects();
       setIsFormOpen(false);
