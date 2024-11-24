@@ -22,7 +22,7 @@ function Users() {
   const fetchUsers = async () => {
     try {
       setLoading(true);
-      const response = await axios.get('https://199.85.208.153:3000/api/users');
+      const response = await axios.get('http://199.85.208.153:3000/api/users');
       setUsers(response.data);
       setError(null);
     } catch (err) {
@@ -38,10 +38,10 @@ function Users() {
   const handleSubmit = async (id: number | undefined, userData: any) => {
     try {
       if (id) {
-        await axios.put(`https://199.85.208.153:3000/api/users/${id}`, userData);
+        await axios.put(`http://199.85.208.153:3000/api/users/${id}`, userData);
         showToast('success', 'User updated successfully');
       } else {
-        await axios.post('https://199.85.208.153:3000/api/users', userData);
+        await axios.post('http://199.85.208.153:3000/api/users', userData);
         showToast('success', 'User added successfully');
       }
       await fetchUsers();
@@ -61,7 +61,7 @@ function Users() {
     
     try {
       setLoading(true);
-      await axios.delete(`https://199.85.208.153:3000/api/users/${userToDelete.id}`);
+      await axios.delete(`http://199.85.208.153:3000/api/users/${userToDelete.id}`);
       await fetchUsers();
       showToast('success', 'User deleted successfully');
       setError(null);

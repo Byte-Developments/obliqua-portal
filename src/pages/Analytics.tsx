@@ -28,7 +28,7 @@ function Analytics() {
   const fetchStats = async () => {
     try {
       setLoading(true);
-      const response = await axios.get('https://199.85.208.153:3000/api/analytics');
+      const response = await axios.get('http://199.85.208.153:3000/api/analytics');
       setStats(response.data);
       setError(null);
     } catch (err: any) {
